@@ -1,0 +1,14 @@
+
+*.class
+
+mochila_voraz/.classpath
+
+mochila_voraz/.project
+
+*.prefs
+
+RemoteSystemsTempFiles/.project
+
+.metadata/.lock
+
+.metadata/version.ini
