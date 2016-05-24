@@ -4,5 +4,7 @@
 - Datos del programa:
   - n: número de objetos disponibles
   - M: capacidad de la mochila_voraz
-  - p = (p1, p2, ..., pn) pesos de los objetos
-  - b = (b1, b2, ..., bn) beneficio de los objetos
+  - p = (p~1, p~2, ..., p~n) pesos de los objetos
+  - b = (b~1, b~2, ..., b~n) beneficio de los objetos
+
+-
