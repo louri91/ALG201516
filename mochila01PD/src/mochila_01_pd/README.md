@@ -95,3 +95,34 @@ Una vez tenemos la ecuación de recurrencia tenemos que pensar cómo vamos a apl
 - El beneficio óptimo es V[n,M]
 
 #### Paso 3) Recomponer la solución óptima.
+
+- V[n, M] almacena el beneficio óptimo, pero tenemos que recomponer la solución para saber qué objetos son los que tenemos que llevar en la mochila. Necesitamos obtener la tupla solución (x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>) utilizando V.
+
+- Si partimos de la posición solución V[n, M], podemos analizar las decisiones que se han tomado para cada objeto i.
+
+~~~
+
+Si V[i,j] = V[i-1,j] -> xi = 0 // la solución no ha utilizado el objeto i
+
+Si V[i,j] = V[i-1, j-pi] + bi -> xi = 1 // la solución sí ha utilizado el objeto i.
+
+~~~
+
+Podemos encontrarnos en el caso de que se cumplan las dos condiciones anteriores, esto quiere decir que hay más de una solución óptima y, por tanto, podemos elegir o no elegir el objeto i, la solución será correcta en ambos casos.
+
+Si traducimos a pseudocódigo la recomposición de la solución:
+
+~~~
+
+j = P
+
+para i = n, ..., 1 hacer
+  si V[i,j] == V[i-1,j] entonces
+    X[i] = 0
+  sino
+    X[i] = 1
+    j = j-pi
+  finsi
+finpara
+
+~~~
