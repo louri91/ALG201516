@@ -9,7 +9,7 @@
 
 ### Pasos a seguir para la resolución teórica del problema:
 
-  #### Obtener la descomposición recurrente.
+#### Paso 1) Obtener la descomposición recurrente.
 Para realizar la descomposición recurrente del problema es necesario interpretarlo como un proceso de toma de decisiones, en el caso de este problema, debemos tomar la decisión de tomar o no tomar el objeto que se esté analizando en ese momento.
 
 Una vez tomada una decisión particular sobre un objeto determinado, nos queda un problema de menor tamaño, es decir, con un objeto menos que analizar.
@@ -58,3 +58,40 @@ Consideramos k los primeros k objetos de los n originales y m la capacidad de la
 La siguiente ecuación obtiene la solución óptima del problema:
 
 ![alt text](https://github.com/louri91/ALG201516/raw/master/ecuacion.png "Resultado, ecuación de recurrencia")
+
+Una vez tenemos la ecuación de recurrencia tenemos que pensar cómo vamos a aplicarla de forma ascendente. Para ello vamos a utilizar una tabla para guardar los resultados de los subproblemas. Comenzaremos a rellenar la tabla por los casos base.
+
+#### Paso 2) Definición de las tablas y cómo rellenarlas.
+
+##### Dimensiones y tamaño de la tabla
+
+- Se define la tabla V para guardar los resultados de los subproblemas V[i,j] = Mochila(i,j)
+- La solución del problema original es Mochila(n,M) y por tanto, la tabla debe ser:
+
+~~~
+  V: array[0..n, 0..M] de enteros
+~~~
+- Rellenamos la fila 0 y la columna 0 con los casos base de valor 0.
+- Los valores que quedan fuera de la tabla son los casos base de valor -∞
+
+##### Forma de rellenar las tablas.
+- Inicializamos los casos base:
+~~~
+  V[i, 0] = 0;
+  V[0, j] = 0;
+~~~
+- Rellenamos lo que resta:
+~~~
+  Para todo i desde 1 hasta n
+
+    Para todo j desde 1 hasta M, aplicamos la ecuación:
+
+      si j-pi < 0
+        V[i,j] = V[i-1,j]
+      sino
+        V[i,j] = max(V[i-1,j], bi + V[i-1, j-pi])
+      finsi
+~~~
+- El beneficio óptimo es V[n,M]
+
+#### Paso 3) Recomponer la solución óptima.
