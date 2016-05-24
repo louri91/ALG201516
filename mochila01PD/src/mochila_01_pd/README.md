@@ -101,11 +101,9 @@ Una vez tenemos la ecuación de recurrencia tenemos que pensar cómo vamos a apl
 - Si partimos de la posición solución V[n, M], podemos analizar las decisiones que se han tomado para cada objeto i.
 
 ~~~
-
 Si V[i,j] = V[i-1,j] -> xi = 0 // la solución no ha utilizado el objeto i
 
 Si V[i,j] = V[i-1, j-pi] + bi -> xi = 1 // la solución sí ha utilizado el objeto i.
-
 ~~~
 
 Podemos encontrarnos en el caso de que se cumplan las dos condiciones anteriores, esto quiere decir que hay más de una solución óptima y, por tanto, podemos elegir o no elegir el objeto i, la solución será correcta en ambos casos.
@@ -113,7 +111,6 @@ Podemos encontrarnos en el caso de que se cumplan las dos condiciones anteriores
 Si traducimos a pseudocódigo la recomposición de la solución:
 
 ~~~
-
 j = P
 
 para i = n, ..., 1 hacer
@@ -124,5 +121,4 @@ para i = n, ..., 1 hacer
     j = j-pi
   finsi
 finpara
-
 ~~~
