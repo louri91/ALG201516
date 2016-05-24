@@ -46,7 +46,7 @@ public class MochilaVoraz {
 		
 		System.out.println("3. Creamos la mochila");
 		
-		Mochila mochila = new Mochila(33);
+		Mochila mochila = new Mochila(25);
 		
 		System.out.println("4. Llenamos la mochila");
 		
