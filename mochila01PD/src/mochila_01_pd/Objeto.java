@@ -47,11 +47,21 @@ public class Objeto implements Comparable<Objeto>{
 	}
 
 	@Override
-	public int compareTo(Objeto o) {
+	/*public int compareTo(Objeto o) {
 		if(((o.getBeneficio())/(o.getPeso()))>((this.getBeneficio())/(this.getPeso()))){
 			return -1;
 		}else if(((o.getBeneficio())/(o.getPeso()))<((this.getBeneficio())/(this.getPeso()))){
 			return 1;
+		}else{
+			return 0;
+		}
+	}*/
+	
+	public int compareTo(Objeto o) {
+		if(((o.getPeso()))>((this.getPeso()))){
+			return 1;
+		}else if(((o.getPeso()))<((this.getPeso()))){
+			return -1;
 		}else{
 			return 0;
 		}
