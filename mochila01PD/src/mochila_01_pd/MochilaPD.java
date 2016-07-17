@@ -82,7 +82,8 @@ public class MochilaPD {
 				if((j - (objetos[i].getPeso())) < 0){
 					tablaResultados[i][j] = tablaResultados[i-1][j];
 				}else{
-					tablaResultados[i][j] = Math.max(tablaResultados[i-1][j], objetos[i].getBeneficio() + tablaResultados[i-1][(int)(j - (objetos[i].getPeso()))]);
+					tablaResultados[i][j] = Math.max(tablaResultados[i-1][j], objetos[i].getBeneficio() + 
+							tablaResultados[i-1][(int)(j - (objetos[i].getPeso()))]);
 				}
 				//System.out.print(tablaResultados[i][j] + " ");
 			}
@@ -112,7 +113,6 @@ public class MochilaPD {
 					mochila.add(objetos[i]);
 				}
 			}else if(tablaResultados[i][j]==tablaResultados[i-1][j]){
-				//System.out.println("Iteración" +i+" Primer elemento "+tablaResultados[i][j]+ " vs Segundo elemento "+ tablaResultados[i-1][j]+ " NO");
 				tuplaSolucion[i] = 0;
 				System.out.println("Iteración" +i+" -> j vale: "+j+ " NO" + " nos llevamos el objeto "+ objetos[i].getNombre());
 			}else{
@@ -129,7 +129,8 @@ public class MochilaPD {
 		for(int z = 0; z<tuplaSolucion.length;z++){
 			if(tuplaSolucion[z]==1){
 				pesoTotal = pesoTotal + objetos[z].getPeso();
-				System.out.println("Nos llevamos el objeto "+ objetos[z].getNombre()+ " con peso "+objetos[z].getPeso() + " y con beneficio "+objetos[z].getBeneficio());
+				System.out.println("Nos llevamos el objeto "+ objetos[z].getNombre()+ " con peso "+objetos[z].getPeso() + 
+						" y con beneficio "+objetos[z].getBeneficio());
 			}
 			System.out.print("x"+z +" = " +tuplaSolucion[z]+", ");
 		}
